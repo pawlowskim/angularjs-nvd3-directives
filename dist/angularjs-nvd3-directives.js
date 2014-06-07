@@ -2401,7 +2401,8 @@
           legendupdatestate: '@',
           legendradiobuttonmode: '@',
           objectequality: '@',
-          transitionduration: '@'
+          transitionduration: '@',
+	  brushextent: '&'
         },
         controller: [
           '$scope',
@@ -2470,6 +2471,9 @@
                   if ( attrs.tooltipcontent ) {
                     chart.tooltipContent( scope.tooltipcontent() );
                   }
+		  if (attrs.brushextent){
+		    chart.brushExtent(scope.brushextent());
+		  }
                   scope.d3Call( data, chart );
                   nv.utils.windowResize( chart.update );
                   scope.chart = chart;
